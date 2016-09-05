@@ -91,11 +91,11 @@ class Api:
         return self.get_response_data(r)
 
     def get_response_data(self, response):
+
         if response.status_code != 200:
             logging.error('http status: ' + str(response.status_code))
-
         try:
-            response_json = json.loads(response.text.strip().decode('utf-8'))
+            response_json = json.loads(response.text.strip())
         except:
             return response.content
 
